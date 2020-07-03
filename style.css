@@ -1,0 +1,19 @@
+img {
+    width: 200px;
+    height: 200px;
+}
+#imageContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid black;
+    width: 100%;
+    padding: 50px;
+}
+button{
+    width: 75px;
+    height: 20px;
+}
+.hide {
+    display: none;
+}

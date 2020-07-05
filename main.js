@@ -1,27 +1,32 @@
 let next = document.querySelector('#next')
-let previous = document.querySelector('#previous')
+let previous = document.querySelector('#prev')
+let allImages = document.querySelectorAll('.slides')
 
 let image1 = document.querySelector('#image1')
 let image2 = document.querySelector('#image2')
 let image3 = document.querySelector('#image3')
-let image4 = document.querySelector('#image4')
-let image5 = document.querySelector('#image5')
 
-let currentImage = image1
-let nextImage = image2
-let previousImage = image5
+let index = 0;
 
+for (let i = 0; i<=allImages.length-1; i++){
+    allImages[i].style.display = 'none'
+}
 
 next.addEventListener('click', (e) =>{
-    image1.removeAttribute('class','show')//current image
-    image2.removeAttribute('class','hide')//previous image
-    image1.setAttribute('class','hide')//previous image
-    image2.setAttribute('class','show')//current image
+    displaySlides(index)
+    index++
+    if (index > allImages.length-1){
+        index = 0
+    }
 })
 previous.addEventListener('click', (e) =>{
-    image1.removeAttribute('class','hide')
-    image2.removeAttribute('class','show')
-    image1.setAttribute('class','show')
-    image2.setAttribute('class','hide')
+    displaySlides(index)
+    index--
+    if (index < 0){
+        index = allImages.length-1
+    }
 })
 
+function displaySlides (index){
+   allImages[index].style.display = 'block'
+}

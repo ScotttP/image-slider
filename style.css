@@ -10,6 +10,11 @@ img {
     width: 100%;
     padding: 50px;
 }
+#navigationDots{
+    display: flex;
+    justify-content: center;
+    
+}
 button{
     width: 75px;
     height: 20px;
@@ -17,3 +22,12 @@ button{
 .hide {
     display: none;
 }
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbbb;
+    border-radius: 50%;
+    display: inline-block;
+  }

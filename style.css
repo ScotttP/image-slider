@@ -31,3 +31,6 @@ button{
     border-radius: 50%;
     display: inline-block;
   }
+.selectedDot{
+    background-color: blue;
+}

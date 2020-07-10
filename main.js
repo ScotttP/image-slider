@@ -3,6 +3,7 @@ let previous = document.querySelector('#prev')
 let allImages = document.querySelectorAll('.slides')
 let navigationDots = document.querySelector('#navigationDots')
 
+
 let image1 = document.querySelector('#image1')
 let image2 = document.querySelector('#image2')
 let image3 = document.querySelector('#image3')
@@ -10,8 +11,10 @@ let image3 = document.querySelector('#image3')
 let index = 0;
 
 clearDisplay()
-displaySlides(index)
 createDots()
+displaySlides(index)
+displayDots(index)
+
 
 setInterval(nextListener,5000);
 
@@ -29,6 +32,10 @@ function clearDisplay (){
     for (let i = 0; i<=allImages.length-1; i++){
         allImages[i].style.display = 'none'
     }
+    let dots = document.querySelectorAll('.dot')
+    dots.forEach((dots) => {
+        dots.classList.remove('selectedDot')
+    })
 }
 function createDots (){
     document.querySelector('#navigationDots').innerHTML = ''
@@ -37,9 +44,7 @@ function createDots (){
         createDots.setAttribute('class' , 'dot')
         createDots.setAttribute('id', i)
         createDots.addEventListener('click', (e) => {
-            clearDisplay()
-            let selectedIndex = e.target.id
-            displaySlides(selectedIndex)
+           dotListeners(e)
         })
 
         navigationDots.appendChild(createDots)
@@ -48,6 +53,7 @@ function createDots (){
 function nextListener () {
     clearDisplay()
     displaySlides(index)
+    displayDots(index)
     index++
     if (index > allImages.length-1){
         index = 0
@@ -56,11 +62,22 @@ function nextListener () {
 function prevListener () {
     clearDisplay()
     displaySlides(index)
+    displayDots(index)
     index--
     if (index < 0){
         index = allImages.length-1
     }
 }
-function hi (){
-    console.log('hi')
+function dotListeners (e) {
+    
+    clearDisplay()
+    index = e.target.id
+    displaySlides(index)
+    displayDots(index)
+}
+function displayDots (index) {
+   
+    let allDots = document.querySelectorAll('span')
+    allDots[index].classList.add('selectedDot')
+
 }

@@ -2,19 +2,12 @@ let next = document.querySelector('#next')
 let previous = document.querySelector('#prev')
 let allImages = document.querySelectorAll('.slides')
 let navigationDots = document.querySelector('#navigationDots')
-
-
-let image1 = document.querySelector('#image1')
-let image2 = document.querySelector('#image2')
-let image3 = document.querySelector('#image3')
-
 let index = 0;
 
 clearDisplay()
 createDots()
 displaySlides(index)
 displayDots(index)
-
 
 setInterval(nextListener,5000);
 
@@ -25,12 +18,14 @@ previous.addEventListener('click', () =>{
     prevListener()
 })
 function displaySlides (index){
-   allImages[index].style.display = 'block'
+    allImages[index].classList.remove('hide')
+   allImages[index].classList.add('show')
    
 }
 function clearDisplay (){
     for (let i = 0; i<=allImages.length-1; i++){
-        allImages[i].style.display = 'none'
+        allImages[i].classList.add('hide')
+        allImages[i].classList.remove('show')
     }
     let dots = document.querySelectorAll('.dot')
     dots.forEach((dots) => {
@@ -76,7 +71,6 @@ function dotListeners (e) {
     displayDots(index)
 }
 function displayDots (index) {
-   
     let allDots = document.querySelectorAll('span')
     allDots[index].classList.add('selectedDot')
 

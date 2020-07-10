@@ -21,6 +21,11 @@ button{
 }
 .hide {
     display: none;
+    transition: ease-in;
+}
+.show {
+    
+    display: block;
 }
 .dot {
     cursor: pointer;
@@ -32,5 +37,8 @@ button{
     display: inline-block;
   }
 .selectedDot{
-    background-color: blue;
+    background-color: rgba(119, 119, 119, 0.733);
+}
+.animate {
+    
 }

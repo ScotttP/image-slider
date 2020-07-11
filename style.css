@@ -1,19 +1,25 @@
 img {
-    width: 200px;
-    height: 200px;
+    width: 100%;
+    height: 50%;
 }
 #imageContainer{
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 2px solid black;
     width: 100%;
-    padding: 50px;
+    padding: 2%;
+    max-width: 1590px;
+}
+#imageSlider{
+    display: flex;
+    justify-content: center;
 }
 #navigationDots{
     display: flex;
     justify-content: center;
-    
+    align-items: center;
+    height: 20%;
+    width: 100%;
 }
 button{
     width: 75px;
@@ -24,8 +30,7 @@ button{
     transition: ease-in;
 }
 .show {
-    
-    display: block;
+    display: flex;
 }
 .dot {
     cursor: pointer;
@@ -39,6 +44,26 @@ button{
 .selectedDot{
     background-color: rgba(119, 119, 119, 0.733);
 }
-.animate {
-    
+a {
+    margin: 5%;
 }
+a:hover{
+    cursor: pointer;
+}
+
+.animate {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+  }
+  
+  @-webkit-keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+  }
+  
+  @keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+  }
